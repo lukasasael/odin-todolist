@@ -33,11 +33,72 @@ body {
     align-items: center;
 }
 
-#input-title, #input-description, #input-create-button {
+#project-rendered-area {
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin-top: 5%;
+    align-self: center;
+    background-color: #292929;
+    color: #ffffff;
+    border: 1px solid #292929;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444444;
+}
+
+button:focus {
+    outline: none;
+}
+
+#input-title,
+#input-description,
+#input-create-button {
+    padding: 5px;
     width: 40%;
     margin: 1%;
+    border-radius: 2px;
+    resize: vertical;
+}
+
+#task-area {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #333333;
+    border: 1px solid #1e1e1e;
     border-radius: 20px;
-    resize: none;
+}
+
+#task-area form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#task-area input {
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 2px;
+}
+
+#task-rendered-area {
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 ul {

@@ -1,4 +1,5 @@
 import { createProject } from './project'
+import { createTask } from './task'
 
 const displayArea = document.getElementById('project-area')
 
@@ -44,8 +45,41 @@ export function renderProject(project) {
 
     let createNoteButton = document.createElement('button')
     createNoteButton.textContent = "Add Task"
-    createNoteButton.addEventListener('click', () => { createTask() })
+    createNoteButton.addEventListener('click', () => { createTask(project) })
     projectRenderedArea.appendChild(createNoteButton)
 
+    
     displayArea.appendChild(projectRenderedArea)
+    renderTasks(project)
+}
+
+export function addSidebarProject(project) {
+
+}
+
+export function renderTasks(project) {
+    if (project.taskList != null) {
+        for (let key in project.taskList) {
+            let task = project.taskList[key]
+            
+            let taskArea = document.createElement("div")
+            taskArea.id = "task-rendered-area"
+
+            let taskName = document.createElement("p")
+            taskName.textContent = task.name
+
+            let taskDescription = document.createElement("p")
+            taskDescription.textContent = task.text
+
+            let taskCheckBox = document.createElement("input")
+            taskCheckBox.setAttribute("type", "checkbox")
+            taskCheckBox.setAttribute("id", "checkbox")
+            taskCheckBox.checked = task.checked
+
+            taskArea.appendChild(taskName)
+            taskArea.appendChild(taskDescription)
+            taskArea.appendChild(taskCheckBox)
+            displayArea.appendChild(taskArea)
+        }
+    }
 }
