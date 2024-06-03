@@ -26,6 +26,20 @@ body {
     margin: 10%;
 }
 
+#project-input-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#input-title, #input-description, #input-create-button {
+    width: 40%;
+    margin: 1%;
+    border-radius: 20px;
+    resize: none;
+}
+
 ul {
     list-style: none;
     padding: 0;
