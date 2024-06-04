@@ -1,4 +1,5 @@
 import {renderProject} from './display'
+import { addSidebarProject } from './display'
 
 export class Project {
     constructor(title, description) {
@@ -17,4 +18,5 @@ export function createProject() {
     let description = document.getElementById('input-description')
     const project = new Project(title.value, description.value)
     renderProject(project)
+    addSidebarProject(project)
 }
