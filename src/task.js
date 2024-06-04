@@ -76,10 +76,9 @@ export function createTask(project) {
         const taskName = document.getElementById("task").value
         const taskDescription = document.getElementById("description").value
         const createdDate = formattedDate
-        const dueDate = new Date(document.getElementById("dueDate").value)
-        const formattedDueDate = dueDate.toLocaleDateString()
+        const dueDate = document.getElementById("dueDate").value
         const taskCompleted = document.getElementById("checkbox").checked
-        const task = new Task(taskName, taskDescription, createdDate, formattedDueDate, taskCompleted)
+        const task = new Task(taskName, taskDescription, createdDate, dueDate, taskCompleted)
 
         project.addTask(task)
         taskArea.remove()
@@ -117,10 +116,8 @@ export function editTask(project, task) {
     const dueDate = document.createElement("input")
     dueDate.setAttribute("type", "date")
     dueDate.setAttribute("id", "dueDate")
-    /*const lastDueDate = new Date(task.dueDate)
-    console.log(lastDueDate)
-    dueDate.value = lastDueDate*/
-
+    dueDate.value = task.dueDate 
+    
     const taskCheckBox = document.createElement("input")
     taskCheckBox.setAttribute("type", "checkbox")
     taskCheckBox.setAttribute("id", "checkbox")
@@ -147,10 +144,9 @@ export function editTask(project, task) {
 
         const taskName = document.getElementById("task").value
         const taskDescription = document.getElementById("description").value
-        const dueDate = new Date(document.getElementById("dueDate").value)
-        const formattedDueDate = dueDate.toLocaleDateString()
+        const dueDate = document.getElementById("dueDate").value
         const taskCompleted = document.getElementById("checkbox").checked
-        task.update(taskName, taskDescription, formattedDueDate, taskCompleted)
+        task.update(taskName, taskDescription, dueDate, taskCompleted)
         renderProject(project)
         taskArea.remove()
     })

@@ -101,7 +101,9 @@ export function renderTasks(project) {
             taskCreatedDate.setAttribute("style", "grid-column: 3 / 4; grid-row: 3 / 4;align-self:center; justify-self:center")
 
             let taskDueDate = document.createElement("p")
-            taskDueDate.textContent = "Task Due Date: " + task.dueDate
+            let notFormattedDueDate = new Date(task.dueDate)
+            let formattedDueDate = notFormattedDueDate.toLocaleDateString()
+            taskDueDate.textContent = "Task Due Date: " + formattedDueDate
             taskDueDate.id = "task-due-date"
             taskDueDate.setAttribute("style", "grid-column: 2 / 3;align-self:center; justify-self:center")
 
